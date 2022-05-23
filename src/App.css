@@ -12,6 +12,7 @@
   margin-top: 3%;
   background-color: #dcdde1;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  border-radius: 5px;
 
 }
 
@@ -31,9 +32,24 @@
   align-items: center;
   row-gap: 20px;
 }
-
+.fee_amount{
+  border: 1px solid #444;
+  height: 40px;
+  width: 250px;
+  margin: 20px 0px 20px 0px !important;
+  text-align: left;
+  padding: 5px;
+  border-radius: 5px;
+}
 .fee_amount h4{
   text-transform:capitalize;
+  font-size: 24px;
+}
+
+.reset-btn{
+  margin-top: 10px !important;
+  width: 150px !important;
+  margin-left: -4px !important;
 }
 
 @media screen and (max-width : 668px) {

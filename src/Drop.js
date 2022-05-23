@@ -14,6 +14,7 @@ import { feeData } from "./data";
 const Drop = () => {
   const [data, setData] = useState("");
   const [type, setType] = React.useState("");
+  const[feeType, setFeeType] = useState('');
   const [country, setCountry] = React.useState("");
   const [course, setCourse] = useState("");
   const [degree, setDegree] = useState("");
@@ -39,12 +40,18 @@ const Drop = () => {
     setDegree(event.target.value);
     getAmount(event.target.value)
   };
+
   const handleReset =() => {
     setType('');
     setCountry('');
     setCourse('');
     setDegree('');
     setAmount(0)
+  }
+
+  const getType = () => {
+      const t = Object.keys(feeData);
+      setFeeType(t)
   }
 
   const getCountrys = () => {
@@ -88,6 +95,7 @@ const Drop = () => {
   useEffect(() => {
     getCountrys();
     setCourses();
+    getType()
   }, [type]);
 
 
@@ -105,8 +113,18 @@ const Drop = () => {
             label="Fee-Type"
             onChange={handleDropType}
           >
-            <MenuItem value={"Exam Fee"}>Exam Fee</MenuItem>
-            <MenuItem value={"Application Fee"}>Application Fee</MenuItem>
+            {/* <MenuItem value={"Exam Fee"}>Exam Fee</MenuItem>
+            <MenuItem value={"Application Fee"}>Application Fee</MenuItem> */}
+            
+            {feeType &&
+                feeType.map((item, index) => {
+                  return (
+                    <MenuItem value={item} key={index}>
+                      {item}
+                    </MenuItem>
+                  );
+                })}
+
           </Select>
         </FormControl>
       </div>
@@ -177,7 +195,7 @@ const Drop = () => {
 
       <div className="fee_amount" style={{margin : "20px 0px"}}>
          <h4 >Total Fee - {amount} ₹</h4>
-         <Button variant="contained"  onClick={handleReset}>Reset</Button>
+         <Button variant="contained"  onClick={handleReset} className= "reset-btn">Reset</Button>
       </div>
     </div>
   );
