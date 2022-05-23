@@ -1,4 +1,4 @@
-First before start app run below command 
+First before start app run  command 
 npm install
 
 After that run command
