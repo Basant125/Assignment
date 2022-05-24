@@ -32,6 +32,7 @@
   align-items: center;
   row-gap: 20px;
 }
+
 .fee_amount{
   border: 1px solid #444;
   height: 40px;
@@ -43,7 +44,7 @@
 }
 .fee_amount h4{
   text-transform:capitalize;
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .reset-btn{
