@@ -23,15 +23,20 @@ const Drop = () => {
   const handleDropType = (event) => {
     setType(event.target.value);
     setCountry("");
+    setData('')
+    setAllCourse('')
     setCourse("");
     setDegree("");
+    setAllDegree('')
     setAmount(0);
   };
 
   const handleCountry = (event) => {
     setCountry(event.target.value);
     setDegree("");
+    setAllDegree('')
     setCourse("");
+    setAllCourse('')
   };
 
   const handleCourse = (event) => {
@@ -66,7 +71,6 @@ const Drop = () => {
     if (type && country) {
       const cours = Object.keys(feeData[type][country]);
       setAllCourse(cours);
-      console.log(cours);
     }
   }
 
@@ -74,7 +78,6 @@ const Drop = () => {
     if (type && country && course) {
       const degrees = Object.keys(feeData[type][country][course]);
       setAllDegree(degrees);
-      console.log(degrees);
     }
   }
 
@@ -82,7 +85,6 @@ const Drop = () => {
     if (type && country && course && degree) {
       const amount = feeData[type][country][course][degree].amount;
       setAmount(amount);
-      console.log(amount);
     }
   }
 
@@ -185,7 +187,7 @@ const Drop = () => {
                   );
                 })
               ) : (
-                <span>please select above options</span>
+                <span>please select above three options</span>
               )}
             </Select>
           </FormControl>
