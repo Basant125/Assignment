@@ -50,8 +50,11 @@ const Drop = () => {
   const handleReset = () => {
     setType("");
     setCountry("");
+    setData('')
     setCourse("");
+    setAllCourse('')
     setDegree("");
+    setAllDegree('')
     setAmount(0);
   };
 
