@@ -86,8 +86,18 @@ const Drop = () => {
 
   function getAmount() {
     if (type && country && course && degree) {
-      const amount = feeData[type][country][course][degree].amount;
-      setAmount(amount);
+      if (country === "INDIAN" || country === "SAARC") {
+        const persant = ((feeData[type][country][course][degree].amount) * 18) / 100
+        const amount = feeData[type][country][course][degree].amount;
+        const total = amount + persant
+        setAmount(total);
+      } else {
+        const persant = ((feeData[type][country][course][degree].amount) * 28) / 100
+        const amount = feeData[type][country][course][degree].amount;
+        const total = amount + persant
+        setAmount(total);
+      }
+
     }
   }
 
